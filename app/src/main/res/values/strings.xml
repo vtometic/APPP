@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ParkingAppv01</string>
+    <string name="btn_pri">Prijava</string>
+    <string name="btn_reg">Registracija</string>
+    <string name="btn_pon">PONUDI PARKING</string>
+    <string name="btn_pro">PRONAĐI PARKING</string>
+    <string name="naslov">PRIVATNI PARKING PULA</string>
+    <string name="text1">Nemaš račun? napravi ga!</string>
+    <string name="text2">Klikni na ikonu za više!</string>
+    <string name="text3">Imaš svoje parkirno mjesto koje je prazno dok si odsutan od doma?
+                         Daj ga iznajmi, nekom učini uslugu i usput zaradi! :)</string>
+    <string name="text4">Unesi svoj e-mail i lozinku, završi prijavu i unutra si!</string>
+    <string name="text5">Ukoliko još nemaš račun, napravi ga.</string>
+    <string name="text6">Kako bi mogao/la iznajmiti ili unajmiti parkirno mjesto moraš se registrirati.</string>
+    <string name="text7">Već imaš račun?</string>
+    <string name="text8">Imaš prazno parkirno mjesto ili ga trebaš? ponudi ili pronađi parking.</string>
+</resources>

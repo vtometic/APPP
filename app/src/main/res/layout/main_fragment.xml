@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CCE3FF"
+    tools:context=".ui.main.MainFragment">
+
+    <TextView
+        android:id="@+id/naslov"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/itim"
+        android:text="@string/naslov"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imgBtn"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:background="#CCE3FF"
+        android:src="@drawable/ic_naslovna"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/naslov"
+        app:layout_constraintVertical_bias="0.061" />
+
+    <Button
+        android:id="@+id/btn_prijava"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/custom_btn_prijava"
+        android:drawableStart="@drawable/ic_prijava"
+        android:fontFamily="@font/itim"
+        android:text="@string/btn_pri"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgBtn" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/itim"
+        android:text="@string/text1"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_prijava" />
+
+    <Button
+        android:id="@+id/btn_registracija"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:background="@drawable/custom_btn_prijava"
+        android:drawableStart="@drawable/ic_reg"
+        android:fontFamily="@font/itim"
+        android:text="@string/btn_reg"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1"
+        app:layout_constraintVertical_bias="0.098" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="88dp"
+        android:layout_height="87dp"
+        android:layout_marginStart="202dp"
+        android:layout_marginTop="183dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="52dp"
+        android:src="@drawable/ic_klik"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/btn_prijava"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imgBtn"
+        app:layout_constraintTop_toTopOf="@+id/imgBtn" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="221dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="33dp"
+        android:fontFamily="@font/itim"
+        android:text="@string/text2"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/btn_prijava"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imgBtn"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="380dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="19dp"
+        android:fontFamily="@font/itim"
+        android:text="@string/text3"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/btn_prijava"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgBtn"
+        app:layout_constraintVertical_bias="0.038" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
