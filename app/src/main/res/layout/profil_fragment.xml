@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profil"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".ui.profil.ProfilFragment">
+
+    <RelativeLayout
+        android:id="@+id/zaglavlje"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#1761a0"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="start"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/itim"
+            android:text="Profil"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="35sp" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="end"
+            android:layout_marginEnd="0dp"
+            android:adjustViewBounds="false"
+            android:src="@drawable/arena" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/podzaglavlje"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#8dcaff"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zaglavlje">
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/itim"
+        android:text="Broj ponuda parkinga:"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/podzaglavlje" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/prijava"
+    android:id="@+id/pocetna"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
@@ -30,11 +30,10 @@
             android:layout_marginBottom="0dp"
             android:fontFamily="@font/itim"
             android:maxLines="2"
-            android:text="Privatni parking pula"
+            android:text="Privatni parking Pula"
             android:textAlignment="center"
-            android:textAllCaps="true"
             android:textColor="#FFFFFF"
-            android:textSize="30sp" />
+            android:textSize="35sp" />
 
         <ImageView
             android:id="@+id/imageView6"
@@ -48,6 +47,17 @@
 
     </RelativeLayout>
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zaglavlje"
+        app:srcCompat="@drawable/pocetna" />
+
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
@@ -58,21 +68,12 @@
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btn_ponudi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/zaglavlje"
-        app:srcCompat="@drawable/pocetna" />
 
     <Button
         android:id="@+id/btn_ponudi"
@@ -83,6 +84,7 @@
         android:background="@drawable/custom_btn_prijava"
         android:fontFamily="@font/itim"
         android:text="@string/btn_pon"
+        android:textSize="25sp"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/btn_pronadi"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,10 +99,11 @@
         android:background="@drawable/custom_btn_prijava"
         android:fontFamily="@font/itim"
         android:text="@string/btn_pro"
+        android:textSize="25sp"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_ponudi" />
-
+    
 
 </androidx.constraintlayout.widget.ConstraintLayout>

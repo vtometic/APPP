@@ -21,19 +21,19 @@
 
         <TextView
             android:id="@+id/textView6"
-            android:layout_width="272dp"
-            android:layout_height="38dp"
+            android:layout_width="332dp"
+            android:layout_height="44dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
             android:layout_gravity="start"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="22dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="12dp"
             android:fontFamily="@font/itim"
             android:text="Prijava"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="#FFFFFF"
-            android:textSize="30sp" />
+            android:textSize="35sp" />
 
         <ImageView
             android:id="@+id/imageView6"
@@ -41,7 +41,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_gravity="end"
-            android:layout_marginEnd="33dp"
+            android:layout_marginEnd="30dp"
             android:adjustViewBounds="false"
             android:src="@drawable/ic_prijava" />
 
@@ -60,20 +60,20 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/email"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/zaglavlje" />
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
-        android:hint="e-mail"
+        android:hint="E-mail"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/lozinka"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,14 +82,14 @@
 
     <EditText
         android:id="@+id/lozinka"
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="20dp"
         android:ems="10"
-        android:hint="lozinka"
+        android:hint="Lozinka"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/btn_pri_se"
         app:layout_constraintEnd_toEndOf="parent"
@@ -105,7 +105,7 @@
         android:background="@drawable/custom_btn_prijava"
         android:fontFamily="@font/itim"
         android:text="Prijavi se"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
@@ -123,6 +123,7 @@
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btn_pri_reg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -136,7 +137,7 @@
         android:layout_marginBottom="120dp"
         android:background="@drawable/custom_btn_registracija"
         android:fontFamily="@font/itim"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:text="Registracija"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

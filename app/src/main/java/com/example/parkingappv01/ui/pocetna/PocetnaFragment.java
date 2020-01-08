@@ -1,6 +1,7 @@
 package com.example.parkingappv01.ui.pocetna;
 
 
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
@@ -18,7 +19,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.parkingappv01.R;
+import com.example.parkingappv01.ui.kreiran.KreiranFragment;
 import com.example.parkingappv01.ui.pocetna.PocetnaViewModel;
+import com.example.parkingappv01.ui.ponudi1.Ponudi1Fragment;
+import com.example.parkingappv01.ui.pronadi1.Pronadi1Fragment;
 
 public class PocetnaFragment extends Fragment {
 
@@ -35,6 +39,29 @@ public class PocetnaFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.pocetna_fragment, container, false);
+        Button btnPonudiparking = (Button) v.findViewById(R.id.btn_ponudi);
+        btnPonudiparking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.container, Ponudi1Fragment.newInstance());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+
+        Button btnPronadiparking = (Button) v.findViewById(R.id.btn_pronadi);
+        btnPronadiparking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.container, Pronadi1Fragment.newInstance());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
 
         return v;
     }
