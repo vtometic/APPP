@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,18 +23,30 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.parkingappv01.MainActivity;
 import com.example.parkingappv01.R;
 import com.example.parkingappv01.ui.pocetna.PocetnaFragment;
 import com.example.parkingappv01.ui.prijava.PrijavaFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import net.yslibrary.android.keyboardvisibilityevent.util.UIUtil;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegistracijaFragment extends Fragment {
-    EditText mIme, mPrezime, mEmail, mLozinka, mPonLozinka;
+    TextInputLayout mIme, mPrezime, mEmail, mLozinka, mPonLozinka;
     Button btnRegSe, btnRegPri;
     FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
+    String userID;
 
     private RegistracijaViewModel mViewModel;
 
@@ -46,15 +59,16 @@ public class RegistracijaFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        ((MainActivity) getActivity()).lockDrawer();
         View v = inflater.inflate(R.layout.registracija_fragment, container, false);
 
-        mIme = v.findViewById(R.id.editText3);
-        mPrezime = v.findViewById(R.id.editText4);
+        mIme = v.findViewById(R.id.ime);
+        mPrezime = v.findViewById(R.id.prezime);
         mEmail = v.findViewById(R.id.email);
         mLozinka = v.findViewById(R.id.lozinka);
         mPonLozinka = v.findViewById(R.id.ponlozinka);
-
         fAuth=FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
 
         /*if(fAuth.getCurrentUser() != null){
 
@@ -68,57 +82,8 @@ public class RegistracijaFragment extends Fragment {
         btnRegSe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String ime = mIme.getText().toString().trim();
-                String prezime = mPrezime.getText().toString().trim();
-                String email = mEmail.getText().toString().trim();
-                String lozinka = mLozinka.getText().toString().trim();
-                String ponlozinka = mPonLozinka.getText().toString().trim();
-
-                if(TextUtils.isEmpty(ime)){
-                    mIme.setError("Unesite ime");
-                    return;
-                }
-                if(TextUtils.isEmpty(prezime)){
-                    mPrezime.setError("Unesite prezime");
-                    return;
-                }
-                if(TextUtils.isEmpty(email)){
-                    mEmail.setError("Unesite email");
-                    return;
-                }
-                if(TextUtils.isEmpty(lozinka)){
-                    mLozinka.setError("Unesite lozinku");
-                    return;
-                }
-                if(TextUtils.isEmpty(ponlozinka)){
-                    mPonLozinka.setError("Potvrdite lozinku");
-                    return;
-                }
-                if(lozinka.length()<8){
-                    mLozinka.setError("Lozinka mora biti duža od 8 znakova");
-                    return;
-                }
-                if(!ponlozinka.equals(lozinka)){
-                    mPonLozinka.setError("Ponovljena lozinka nije identična lozinki");
-                    return;
-                }
-
-                fAuth.createUserWithEmailAndPassword(email,lozinka).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(getActivity(),"Korisnik kreiran", Toast.LENGTH_SHORT).show();
-
-                            FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                            fragmentTransaction.replace(R.id.container, PrijavaFragment.newInstance());
-                            fragmentTransaction.addToBackStack(null);
-                            fragmentTransaction.commit();
-
-                        } else {
-                            Toast.makeText(getActivity(), "Greška!"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+                logIn(v);
+                UIUtil.hideKeyboard(getActivity());
 
             }
         });
@@ -131,10 +96,118 @@ public class RegistracijaFragment extends Fragment {
                 fragmentTransaction.replace(R.id.container, PrijavaFragment.newInstance());
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+                UIUtil.hideKeyboard(getActivity());
             }
         });
 
         return v;
+    }
+    private boolean validateIme(){
+        String ime = mIme.getEditText().getText().toString().trim();
+        if(ime.isEmpty()){
+            mIme.setError("Unesite Ime");
+            return false;
+        }else{
+            mIme.setError(null);
+            return true;
+        }
+    }
+    private boolean validatePrezime(){
+        String prezime = mPrezime.getEditText().getText().toString().trim();
+        if(prezime.isEmpty()){
+            mPrezime.setError("Unesite email");
+            return false;
+        }else{
+            mPrezime.setError(null);
+            return true;
+        }
+    }
+    private boolean validateEmail(){
+        String email = mEmail.getEditText().getText().toString().trim();
+        if(email.isEmpty()){
+            mEmail.setError("Unesite email");
+            return false;
+        }else{
+            mEmail.setError(null);
+            return true;
+        }
+    }
+    private boolean validateLozinka(){
+        String lozinka = mLozinka.getEditText().getText().toString().trim();
+        if(lozinka.isEmpty()){
+            mLozinka.setError("Unesite lozinku!");
+            return false;
+        }
+        if(lozinka.length()<8){
+            mLozinka.setError("Lozinka mora biti duža od 8 znakova");
+            return false;
+        }
+        else{
+            mLozinka.setError(null);
+            return true;
+        }
+    }
+    private boolean validatePonLozinka(){
+        String ponlozinka = mPonLozinka.getEditText().getText().toString().trim();
+        String lozinka = mLozinka.getEditText().getText().toString().trim();
+        if(ponlozinka.isEmpty()){
+            mPonLozinka.setError("Potvrdite lozinku!");
+            return false;
+        }
+        if(!ponlozinka.equals(lozinka)){
+            mPonLozinka.setError("Ponovljena lozinka nije identična lozinki");
+            return false;
+        }
+        else{
+            mLozinka.setError(null);
+            return true;
+        }
+    }
+    public void logIn (View v){
+        if(!validateIme()
+                | !validatePrezime()
+                | !validateEmail()
+                | !validateLozinka()
+                | !validatePonLozinka()){
+            return;
+        }
+
+        final String ime = mIme.getEditText().getText().toString().trim();
+        final String prezime = mPrezime.getEditText().getText().toString().trim();
+        final String email = mEmail.getEditText().getText().toString().trim();
+        final String lozinka = mLozinka.getEditText().getText().toString().trim();
+
+        fAuth.createUserWithEmailAndPassword(email,lozinka).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(getActivity(),"Korisnik kreiran", Toast.LENGTH_SHORT).show();
+                    userID = fAuth.getCurrentUser().getUid();
+                    DocumentReference documentReference = fStore.collection("korisnici").document(userID);
+                    Map<String,Object> korisnik = new HashMap<>();
+                    korisnik.put("id",userID);
+                    korisnik.put("ime",ime);
+                    korisnik.put("prezime",prezime);
+                    korisnik.put("email",email);
+                    korisnik.put("kredit", "0");
+                    documentReference.set(korisnik).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d("TAG","onSuccess: Profil je kreiran za korisnika: "+userID );
+                        }
+                    });
+
+
+                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.container, PrijavaFragment.newInstance());
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+
+                } else {
+                    Toast.makeText(getActivity(), "Greška!"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override

@@ -14,9 +14,6 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.parkingappv01.R;
 import com.example.parkingappv01.ui.ponude.PonudeFragment;
-import com.example.parkingappv01.ui.ponudi3.Ponudi3Fragment;
-import com.example.parkingappv01.ui.ponudi3.Ponudi3ViewModel;
-import com.example.parkingappv01.ui.prijava.PrijavaFragment;
 
 public class KreiranFragment extends Fragment {
 

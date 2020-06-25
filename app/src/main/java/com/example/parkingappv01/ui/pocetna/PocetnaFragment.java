@@ -18,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.parkingappv01.MainActivity;
 import com.example.parkingappv01.R;
 import com.example.parkingappv01.ui.kreiran.KreiranFragment;
 import com.example.parkingappv01.ui.pocetna.PocetnaViewModel;
@@ -37,7 +38,7 @@ public class PocetnaFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-
+        ((MainActivity) getActivity()).unlockDrawer();
         View v = inflater.inflate(R.layout.pocetna_fragment, container, false);
         Button btnPonudiparking = (Button) v.findViewById(R.id.btn_ponudi);
         btnPonudiparking.setOnClickListener(new View.OnClickListener() {

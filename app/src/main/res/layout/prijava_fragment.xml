@@ -64,48 +64,65 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/zaglavlje" />
 
-    <EditText
-        android:id="@+id/email"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/email"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:hint="E-mail"
-        android:inputType="textEmailAddress"
+        app:boxBackgroundMode="outline"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:errorEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/lozinka"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="E-mail"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/lozinka"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="20dp"
-        android:ems="10"
-        android:hint="Lozinka"
-        android:inputType="textPassword"
+        app:errorEnabled="true"
+        app:endIconMode="password_toggle"
+        app:boxBackgroundMode="outline"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintBottom_toTopOf="@+id/btn_pri_se"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        >
 
-    <Button
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="Lozinka" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_pri_se"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
-        android:background="@drawable/custom_btn_prijava"
+        app:cornerRadius="15dp"
         android:fontFamily="@font/itim"
         android:text="Prijavi se"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
@@ -129,16 +146,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_pri_se" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_pri_reg"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="120dp"
-        android:background="@drawable/custom_btn_registracija"
+        app:cornerRadius="15dp"
         android:fontFamily="@font/itim"
-        android:textSize="25sp"
+        android:textSize="20sp"
+        android:textColor="#000000"
         android:text="Registracija"
+        app:backgroundTint="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

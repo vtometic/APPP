@@ -12,6 +12,7 @@
         android:id="@+id/naslov"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
         android:fontFamily="@font/itim"
         android:text="@string/naslov"
         android:textAlignment="center"
@@ -19,6 +20,7 @@
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,17 +38,19 @@
         app:layout_constraintTop_toBottomOf="@+id/naslov"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_prijava"
         android:layout_width="250dp"
         android:layout_height="60dp"
         android:layout_marginTop="52dp"
-        android:background="@drawable/custom_btn_prijava"
+        app:cornerRadius="15dp"
         android:drawableStart="@drawable/ic_prijava"
         android:fontFamily="@font/itim"
         android:text="@string/btn_pri"
         android:textColor="#FFFFFF"
-        android:textSize="26sp"
+        android:textSize="20sp"
+        app:icon="@drawable/ic_prijava"
+        app:iconSize="@dimen/places_autocomplete_powered_by_google_height"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,16 +71,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_prijava" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_registracija"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:background="@drawable/custom_btn_prijava"
+        app:cornerRadius="15dp"
         android:drawableStart="@drawable/ic_reg"
         android:fontFamily="@font/itim"
         android:text="@string/btn_reg"
         android:textColor="#FFFFFF"
-        android:textSize="26sp"
+        android:textSize="20sp"
+        app:icon="@drawable/ic_reg"
+        app:iconSize="@dimen/places_autocomplete_powered_by_google_height"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"

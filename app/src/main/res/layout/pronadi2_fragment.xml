@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/pronadi2"
+    style="@style/AppTheme"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
@@ -12,17 +13,21 @@
         android:id="@+id/zaglavlje"
         android:layout_width="match_parent"
         android:layout_height="80dp"
+        android:addStatesFromChildren="true"
         android:background="#1761a0"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/la"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed">
 
         <TextView
             android:id="@+id/textView21"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
             android:layout_gravity="start"
@@ -30,10 +35,10 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/itim"
-            android:text="Pronađi parking"
+            android:text="Rezerviraj parking"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="35sp" />
+            android:textSize="30sp" />
 
         <ImageView
             android:id="@+id/imageView6"
@@ -45,123 +50,252 @@
             android:adjustViewBounds="false"
             android:src="@drawable/arena" />
 
+
     </RelativeLayout>
 
-    <ImageButton
-        android:id="@+id/imgBtnNaz2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="95dp"
-        android:layout_marginEnd="335dp"
-        android:layout_marginBottom="596dp"
-        android:background="#FFFFFF"
-        android:clickable="true"
-        android:src="@drawable/nazad36"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <RelativeLayout
+        android:id="@+id/la"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:padding="5dp"
+        app:layout_constraintBottom_toTopOf="@id/resInfo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@id/zaglavlje"
+        app:layout_constraintVertical_bias="0.0">
 
-    <TextView
-        android:id="@+id/textView23"
+        <ImageButton
+            android:id="@+id/imgBtnNaz"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#FFFFFF"
+            android:clickable="true"
+            android:foregroundGravity="left"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/uputa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toRightOf="@id/imgBtnNaz"
+            android:fontFamily="@font/itim"
+            android:text="Unesi podatke i rezerviraj parking za navedeni datum"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/resInfo"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="120dp"
-        android:fontFamily="@font/itim"
-        android:text="Želim parking od:"
-        android:textColor="#000000"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView24"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@color/colorAccent"
+        android:padding="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/resInput"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/la">
 
-    <TextView
-        android:id="@+id/textView24"
+        <TextView
+            android:id="@+id/infnaziv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/itim"
+            android:text="Naziv"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/infdatum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/infnaziv"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/itim"
+            android:text="Datum"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/infvrijemeod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/infdatum"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/itim"
+            android:text="Dostupan od"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/infvrijemedo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/infvrijemeod"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/itim"
+            android:text="Dostupan do"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/infcijena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/infvrijemedo"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/itim"
+            android:text="Cijena po satu"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/resInput"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="120dp"
-        android:fontFamily="@font/itim"
-        android:text="Želim parking do:"
-        android:textColor="#000000"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView25"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/btn_rezerviraj"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resInfo">
 
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="206dp"
-        android:layout_height="63dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/itim"
-        android:text="Vaše registracijske oznake:"
-        android:textColor="#000000"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView26"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputOd"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/itim"
+            app:boxBackgroundMode="outline"
+            app:endIconDrawable="@drawable/ic_time"
+            app:endIconMode="custom"
+            app:errorEnabled="true">
 
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="120dp"
-        android:fontFamily="@font/itim"
-        android:text="Ukupno sati:"
-        android:textColor="#000000"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView27"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="false"
+                android:hint="Rezerviraj od" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/textView27"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginBottom="80dp"
-        android:fontFamily="@font/itim"
-        android:text="Ukupna cijena:"
-        android:textColor="#000000"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputDo"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/inputOd"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/itim"
+            app:boxBackgroundMode="outline"
+            app:endIconDrawable="@drawable/ic_time"
+            app:endIconMode="custom"
+            app:errorEnabled="true">
 
-    <Button
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="false"
+                android:hint="Rezerviraj do" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputRego"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/inputDo"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/itim"
+            app:boxBackgroundMode="outline"
+            app:errorEnabled="true"
+            app:helperText="npr. PU444CC"
+            app:endIconDrawable="@drawable/ic_car"
+            app:endIconMode="custom">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Registarska oznaka"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/inputSati"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inputRego"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/itim"
+            android:text="Ukupno sati:"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/inputUkupno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/inputSati"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/itim"
+            android:text="Iznos:"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_rezerviraj"
-        android:layout_width="160dp"
+        android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginBottom="100dp"
-        android:background="@drawable/custom_btn_prijava"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:fontFamily="@font/itim"
         android:text="REZERVIRAJ"
         android:textColor="#FFFFFF"
-        android:textSize="25sp"
+        android:textSize="20sp"
+        app:cornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView27" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/resInput" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

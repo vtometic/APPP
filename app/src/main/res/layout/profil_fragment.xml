@@ -49,30 +49,163 @@
 
     <RelativeLayout
         android:id="@+id/podzaglavlje"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="#8dcaff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="@color/colorAccent"
+        android:padding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/zaglavlje">
 
+        <TextView
+            android:id="@+id/piip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/itim"
+            android:text="Ime i Prezime:"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold" />
     </RelativeLayout>
-
+    <RelativeLayout
+    android:id="@+id/desno"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="5dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="@id/guideline"
+    app:layout_constraintTop_toBottomOf="@+id/podzaglavlje">
     <TextView
-        android:id="@+id/textView29"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="64dp"
+        android:id="@+id/pkredit1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/itim"
-        android:text="Broj ponuda parkinga:"
+        android:text="0.00"
         android:textColor="#000000"
         android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/pbp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pkredit1"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/itim"
+        android:text="0"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/pip1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pbp1"
+        android:fontFamily="@font/itim"
+        android:text="0.00"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/pbr1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pip1"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/itim"
+        android:text="0"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/pir1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pbr1"
+        android:fontFamily="@font/itim"
+        android:text="0.00"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/lijevo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/podzaglavlje" />
+        app:layout_constraintTop_toBottomOf="@+id/podzaglavlje">
+        <TextView
+            android:id="@+id/pkredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/itim"
+            android:text="Raspoloživi iznos:"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/pbp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pkredit"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/itim"
+            android:text="Broj ponuda:"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/pip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pbp"
+            android:fontFamily="@font/itim"
+            android:text="Ukupna zarada :"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/pbr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pip"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/itim"
+            android:text="Broj rezervacija:"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/pir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pbr"
+            android:fontFamily="@font/itim"
+            android:text="Ukupni trošak:"
+            android:textColor="#000000"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

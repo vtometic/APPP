@@ -33,7 +33,7 @@
             android:text="Privatni parking Pula"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="35sp" />
+            android:textSize="32sp" />
 
         <ImageView
             android:id="@+id/imageView6"
@@ -51,6 +51,7 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -62,7 +63,8 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="25dp"
         android:fontFamily="@font/itim"
         android:text="@string/text8"
         android:textAlignment="center"
@@ -71,39 +73,43 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btn_ponudi"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_ponudi"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="25dp"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/custom_btn_prijava"
         android:fontFamily="@font/itim"
         android:text="@string/btn_pon"
-        android:textSize="25sp"
         android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:cornerRadius="15dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_pronadi"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_pronadi"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/custom_btn_prijava"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="101dp"
+        app:cornerRadius="15dp"
         android:fontFamily="@font/itim"
         android:text="@string/btn_pro"
-        android:textSize="25sp"
         android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_ponudi" />
-    
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

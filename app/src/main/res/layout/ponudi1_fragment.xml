@@ -8,6 +8,7 @@
     android:background="#FFFFFF"
     tools:context=".ui.ponudi1.Ponudi1Fragment">
 
+
     <RelativeLayout
         android:id="@+id/zaglavlje"
         android:layout_width="match_parent"
@@ -17,7 +18,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/RelLay"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/textView12"
@@ -47,78 +51,117 @@
 
     </RelativeLayout>
 
-    <ImageButton
-        android:id="@+id/imgBtnIks"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="95dp"
-        android:layout_marginEnd="335dp"
-        android:layout_marginBottom="596dp"
-        android:background="#FFFFFF"
-        android:clickable="true"
-        android:src="@drawable/iks32"
+    <RelativeLayout
+        android:id="@+id/RelLay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:gravity="center_vertical"
+        app:layout_constraintBottom_toTopOf="@id/mapa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/zaglavlje">
+
+        <ImageButton
+            android:id="@+id/imgBtnIks"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#FFFFFF"
+            android:clickable="true"
+            android:foregroundGravity="left"
+            android:src="@drawable/ic_x" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_toRightOf="@+id/imgBtnIks"
+            android:fontFamily="@font/itim"
+            android:text="Unesi adresu parkinga"
+            android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+
+    <fragment
+        android:id="@+id/mapa"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RelLay" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="#fff"
+        android:fontFamily="@font/itim"
+        android:hint="Adresa"
+        android:elevation="10dp"
+        android:inputType="textPostalAddress"
+        app:layout_constraintTop_toTopOf="@+id/mapa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/imgBtnNapr" >
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="270dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/itim"
-        android:text="@string/text13"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/zaglavlje" />
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:id="@+id/ic_search"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/ic_nav_search"
+        />
 
-    <View
+    <EditText
+        android:id="@+id/adresa"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#D8D3E6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="120dp"
+        android:layout_height="50dp"
+        android:layout_toRightOf="@id/ic_search"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="9dp"
+        android:layout_centerVertical="true"
+        android:background="#fff"
         android:fontFamily="@font/itim"
-        android:text="Unesi adresu parkinga"
-        android:textColor="#000000"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        android:hint="npr. Pazinska 14, Pula"
+        android:imeOptions="actionSearch"
+        />
+
+    </RelativeLayout>
 
 
-
-    <ImageButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/imgBtnNapr"
-        android:layout_width="70dp"
-        android:layout_height="66dp"
-        android:background="#FFFFFF"
-        android:clickable="true"
-        android:src="@drawable/napred64"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4D1761a0"
+        app:borderWidth="1dp"
+        app:backgroundTint="@color/colorPrimary"
+        app:tint="@color/colorPrimary"
+        app:elevation="1dp"
+        android:src="@drawable/ic_arrow_forward"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.953"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/zaglavlje"
         app:layout_constraintVertical_bias="0.952" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:orientation="vertical"
+    android:background="@drawable/pocetna"
+    android:backgroundTint="@color/cardview_shadow_start_color"
+    android:gravity="bottom"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/headerPhoto"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="left"
+        android:src="@drawable/profile" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/headerName"
+        android:text="Mario Peric"
+        android:textSize="15dp"
+        android:fontFamily="@font/itim"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_gravity="left"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/headerMail"
+        android:layout_gravity="left"
+        android:fontFamily="@font/itim"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:text="mperic@mail.com"
+        android:textSize="15dp" />
+</LinearLayout>
