@@ -70,14 +70,6 @@ public class RegistracijaFragment extends Fragment {
         fAuth=FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
 
-        /*if(fAuth.getCurrentUser() != null){
-
-            FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.container, PocetnaFragment.newInstance());
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
-        }*/
-
         Button btnRegSe = (Button) v.findViewById(R.id.btn_reg_se);
         btnRegSe.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -86,7 +86,8 @@ android:background="#FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Unesite broj kartice"
-        android:clickable="true"
+        android:inputType="number"
+        android:imeOptions="actionNext"
         />
 </com.google.android.material.textfield.TextInputLayout>
 
@@ -112,7 +113,8 @@ android:background="#FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Unesite ime i prezime"
-        android:clickable="true"
+        android:inputType="text"
+        android:imeOptions="actionNext"
         />
 </com.google.android.material.textfield.TextInputLayout>
 
@@ -137,7 +139,9 @@ android:background="#FFFFFF"
     <com.google.android.material.textfield.TextInputEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Datum isteka"/>
+        android:hint="Datum isteka"
+        android:inputType="text"
+        android:imeOptions="actionNext"/>
 </com.google.android.material.textfield.TextInputLayout>
 
 <com.google.android.material.textfield.TextInputLayout
@@ -161,7 +165,9 @@ android:background="#FFFFFF"
     <com.google.android.material.textfield.TextInputEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Kontrolni broj (CVV)"/>
+        android:hint="Kontrolni broj (CVV)"
+        android:inputType="number"
+        android:imeOptions="actionNext"/>
 </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -188,7 +194,8 @@ android:background="#FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Iznos uplate"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:imeOptions="actionDone"/>
 </com.google.android.material.textfield.TextInputLayout>
 
 <com.google.android.material.button.MaterialButton

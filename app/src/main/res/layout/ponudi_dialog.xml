@@ -201,7 +201,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Cijena po satu"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:imeOptions="actionDone"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
